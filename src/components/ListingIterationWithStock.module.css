@@ -1,0 +1,61 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    padding: 2rem;
+    position: relative;
+    top: 120px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        top: 130;
+        bottom: auto;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    width: 100%;
+    max-width: 256px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.icon {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+/* Ajuste para mobile (máx 640px) */
+@media (max-width: 640px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .icon {
+        width: 120px;
+        height: 120px;
+    }
+
+    .label {
+        font-size: 1rem;
+    }
+}
+
+.label {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    text-align: center;
+    color: var(--text-primary);
+}
