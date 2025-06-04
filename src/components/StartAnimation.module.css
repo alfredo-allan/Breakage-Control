@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    padding: 2rem;
+    position: relative;
+    top: 80px;
+}
+
+/* Padrão: desktop - 3 em linha mas mostra só 1 por vez */
+.animationWrapper {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    max-width: 400px;
+    width: 100%;
+    position: absolute;
+}
+
+.visible {
+    opacity: 1;
+    position: relative;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .animationWrapper {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}

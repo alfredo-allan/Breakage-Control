@@ -3,8 +3,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import ListingIterationWithStock from "./ListingIterationWithStock";
-import { HomeTextContainer } from "./HomeTextContainer";
+// import { HomeTextContainer } from "./HomeTextContainer";
 import SideMenu from "./SideMenu"; // <- IMPORTADO AQUI
+import StartAnimation from "./StartAnimation";
+
 
 export default function Header() {
     const [activeComponent, setActiveComponent] = useState<string>("inicio");
@@ -17,7 +19,12 @@ export default function Header() {
     const renderActiveComponent = () => {
         switch (activeComponent) {
             case "inicio":
-                return <HomeTextContainer />;
+                return (
+                    <>
+                        {/* <HomeTextContainer /> */}
+                        <StartAnimation />
+                    </>
+                );
             case "estoque":
                 return <ListingIterationWithStock />;
             default:
