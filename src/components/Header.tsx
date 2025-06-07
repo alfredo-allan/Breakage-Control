@@ -6,7 +6,10 @@ import ListingIterationWithStock from "./ListingIterationWithStock";
 // import { HomeTextContainer } from "./HomeTextContainer";
 import SideMenu from "./SideMenu"; // <- IMPORTADO AQUI
 import StartAnimation from "./StartAnimation";
-
+import ListingIterationWithDate from "./ListingIterationWithDate";
+import AboutSection from "./AboutSection";
+import ContactForm from "./ContactForm";
+import ListingIterationWithReport from "./ListingIterationWithReport";
 
 export default function Header() {
     const [activeComponent, setActiveComponent] = useState<string>("inicio");
@@ -29,6 +32,19 @@ export default function Header() {
                 return <ListingIterationWithStock />;
             default:
                 return null;
+            case "datas-criticas":
+                return (
+                    <>
+                        {/* <HomeTextContainer /> */}
+                        <ListingIterationWithDate />
+                    </>
+                );
+            case "sobre":
+                return <AboutSection />;
+            case "contato":
+                return <ContactForm />;
+            case "relatorios":
+                return < ListingIterationWithReport />;
         }
     };
 
@@ -52,7 +68,9 @@ export default function Header() {
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="text-[var(--primary)] menu-hover">
+                            <a href="#" className="text-[var(--primary)] menu-hover"
+                                onClick={() => setActiveComponent("datas-criticas")}
+                            >
                                 Datas críticas
                             </a>
                         </li>
@@ -66,17 +84,23 @@ export default function Header() {
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="text-[var(--primary)] menu-hover">
+                            <a href="#" className="text-[var(--primary)] menu-hover"
+                                onClick={() => setActiveComponent("relatorios")}
+                            >
                                 Relatórios
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="text-[var(--primary)] menu-hover">
+                            <a href="#" className="text-[var(--primary)] menu-hover"
+                                onClick={() => setActiveComponent("sobre")}
+                            >
                                 Sobre
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="text-[var(--primary)] menu-hover">
+                            <a href="#" className="text-[var(--primary)] menu-hover"
+                                onClick={() => setActiveComponent("contato")}
+                            >
                                 Contato
                             </a>
                         </li>
