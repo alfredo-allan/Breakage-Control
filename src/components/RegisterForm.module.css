@@ -1,0 +1,32 @@
+/* RegisterForm.module.css */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    /* ajuste se seu header for maior ou menor */
+    /* background-color: var(--background); */
+    /* opcional */
+    padding: 1rem;
+}
+
+/* Ajuste a cor do foco (outline) */
+.inputFocus:focus {
+    border-color: var(--header-bg);
+    /* ou qualquer cor ex: #4f46e5 */
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+    /* efeito suave */
+}
+
+/* Estilo do botão */
+.buttonCustom {
+    background-color: var(--header-bg);
+    /* cor do botão */
+}
+
+.buttonCustom:hover {
+    background-color: var(--text-secondary);
+    /* cor no hover */
+    color: white;
+}

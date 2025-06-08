@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import ListingIterationWithStock from "./ListingIterationWithStock";
+
 // import { HomeTextContainer } from "./HomeTextContainer";
 import SideMenu from "./SideMenu"; // <- IMPORTADO AQUI
 import StartAnimation from "./StartAnimation";
@@ -10,6 +11,8 @@ import ListingIterationWithDate from "./ListingIterationWithDate";
 import AboutSection from "./AboutSection";
 import ContactForm from "./ContactForm";
 import ListingIterationWithReport from "./ListingIterationWithReport";
+import RegisterForm from "./RegisterForm";
+import LoginForm from "./LoginForm";
 
 export default function Header() {
     const [activeComponent, setActiveComponent] = useState<string>("inicio");
@@ -45,6 +48,10 @@ export default function Header() {
                 return <ContactForm />;
             case "relatorios":
                 return < ListingIterationWithReport />;
+            case "cadastrar-se":
+                return < RegisterForm />;
+            case "login":
+                return < LoginForm />;
         }
     };
 
@@ -88,6 +95,22 @@ export default function Header() {
                                 onClick={() => setActiveComponent("relatorios")}
                             >
                                 Relatórios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" className="text-[var(--primary)] menu-hover"
+                                onClick={() => setActiveComponent("cadastrar-se")}
+
+                            >
+                                Cadastrar-se
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" className="text-[var(--primary)] menu-hover"
+                                onClick={() => setActiveComponent("login")}
+
+                            >
+                                Login
                             </a>
                         </li>
                         <li>

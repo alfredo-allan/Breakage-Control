@@ -59,6 +59,22 @@ export default function SideMenu({ onClose, onSelect }: SideMenuProps) {
                     <li>
                         <button
                             className="w-full text-left hover:text-[var(--primary)] transition"
+                            onClick={() => handleSelect("cadastrar-se")}
+                        >
+                            Cadastrar-se
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            className="w-full text-left hover:text-[var(--primary)] transition"
+                            onClick={() => handleSelect("login")}
+                        >
+                            Login
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            className="w-full text-left hover:text-[var(--primary)] transition"
                             onClick={() => handleSelect("sobre")}
                         >
                             Sobre
