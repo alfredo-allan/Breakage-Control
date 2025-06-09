@@ -41,8 +41,11 @@
 
 .message {
     margin-bottom: 1.8rem;
-    font-size: 1rem;
-    color: #333;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .closeButton {
@@ -71,4 +74,14 @@
         opacity: 1;
         transform: scale(1);
     }
+}
+
+.message {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.success {
+    display: none;
 }

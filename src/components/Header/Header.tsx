@@ -2,17 +2,17 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import ListingIterationWithStock from "./ListingIterationWithStock";
+import ListingIterationWithStock from "../ListingIterationWithStock/ListingIterationWithStock";
 
 // import { HomeTextContainer } from "./HomeTextContainer";
-import SideMenu from "./SideMenu"; // <- IMPORTADO AQUI
-import StartAnimation from "./StartAnimation";
-import ListingIterationWithDate from "./ListingIterationWithDate";
-import AboutSection from "./AboutSection";
-import ContactForm from "./ContactForm";
-import ListingIterationWithReport from "./ListingIterationWithReport";
-import RegisterForm from "./RegisterForm";
-import LoginForm from "./LoginForm";
+import SideMenu from "../SideMenu/SideMenu"; // <- IMPORTADO AQUI
+import StartAnimation from "../StartAnimation/StartAnimation";
+import ListingIterationWithDate from "../ListingIterationWithDate/ListingIterationWithDate";
+import AboutSection from "../AboutSection/AboutSection";
+import ContactForm from "../ContactForm/ContactForm";
+import ListingIterationWithReport from "../ListingIterationWithReport/ListingIterationWithReport";
+import RegisterForm from "../RegisterForm/RegisterForm";
+import LoginForm from "../LoginForm/LoginForm";
 
 export default function Header() {
     const [activeComponent, setActiveComponent] = useState<string>("inicio");
