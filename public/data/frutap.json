@@ -1,0 +1,615 @@
+{
+    "mercados": [
+        {
+            "nome": "Nagumo Grimaldi",
+            "endereco": {
+                "rua": "Av Sapopemba 4431",
+                "bairro": "Jardim Grimaldi",
+                "cidade": "São Paulo",
+                "estado": "SP"
+            },
+            "produtos": [
+                {
+                    "codigoEAN": "7896862000868",
+                    "descricao": "IOGURTE FRUTAP FRUTAS VERMELHO"
+                },
+                {
+                    "codigoEAN": "7896862002763",
+                    "descricao": "IOG FRUTAP NATURAL 150G DESNAT"
+                },
+                {
+                    "codigoEAN": "7896862000158",
+                    "descricao": "LEITE FERMENTADO FRUTAP 480G"
+                },
+                {
+                    "codigoEAN": "7896862002107",
+                    "descricao": "LEITE FERMENTADO FRUTAP 170G"
+                },
+                {
+                    "codigoEAN": "7896862002121",
+                    "descricao": "LEITE FERMENTADO 80G BAUNILHA"
+                }
+            ]
+        },
+        {
+            "nome": "Assai (Taboão)",
+            "endereco": {
+                "rua": "Av. do Taboão, 574",
+                "bairro": "Taboão",
+                "cidade": "São Bernardo do Campo",
+                "estado": "SP"
+            },
+            "produtos": [
+                {
+                    "codigoEAN": "7896862000875",
+                    "descricao": "IORGUTE FRUTAP MORANGO 850G"
+                }
+            ]
+        },
+        {
+            "nome": "Atacadão (Anchieta)",
+            "endereco": {
+                "rua": " Av. Marginal Direita Anchieta, km 11 ",
+                "bairro": "Jardim Maria Estela",
+                "cidade": "São Paulo",
+                "estado": "SP"
+            },
+            "produtos": []
+        },
+        {
+            "nome": "Max Muffato",
+            "endereco": {
+                "rua": "Rua Frei Damião",
+                "bairro": "Paulicéia",
+                "cidade": "São Bernardo do Campo",
+                "estado": "SP"
+            },
+            "produtos": []
+        },
+        {
+            "nome": "Carrefour (Anchieta)",
+            "endereco": {
+                "rua": " Rod. Anchieta, 3398",
+                "bairro": "Jardim Maria Estela",
+                "cidade": "São Paulo",
+                "estado": "SP"
+            },
+            "produtos": []
+        },
+        {
+            "nome": "Tenda Atacado (Diadema)",
+            "endereco": {
+                "rua": " Av. Fábio Eduardo Ramos Esquivel, 3000",
+                "bairro": "Canhema",
+                "cidade": "Diadema",
+                "estado": "SP"
+            },
+            "produtos": [
+                {
+                    "codigoEAN": "7896862001247",
+                    "descricao": " BEBIDA LÁCTEA FERMENTADA SALADA DE FRUTAS FRUTILAC 800g"
+                },
+                {
+                    "codigoEAN": "7896862001230",
+                    "descricao": " BEBIDA LÁCTEA FERMENTADA MORANGO FRUTILAC 800g"
+                }
+            ]
+        },
+        {
+            "nome": "Nagumo (Armazem) Vila Diva",
+            "endereco": {
+                "rua": "Av Sapopemba 4431",
+                "bairro": "Vila Diva",
+                "cidade": "São Paulo",
+                "estado": "SP"
+            },
+            "produtos": [
+                {
+                    "codigoEAN": "7896862002152",
+                    "descricao": "LTE FERM FRUTAP SUCO DE LARANJA 900G"
+                },
+                {
+                    "codigoEAN": "7896862002176",
+                    "descricao": "LTE FERM FRUTAP 900G UVA"
+                },
+                {
+                    "codigoEAN": "7896862002190",
+                    "descricao": "LTE FERM FRUTAP SUCO LIMÃO 900G"
+                },
+                {
+                    "codigoEAN": " 7896862002213",
+                    "descricao": "LTE FERM FRUTAP SUCO MAÇA 900G"
+                },
+                {
+                    "codigoEAN": "7896862002237",
+                    "descricao": "LTE FERM FRUTAP SUCO LARANJA 170G"
+                }
+            ]
+        },
+        {
+            "nome": "Bem Barato Grimaldi",
+            "endereco": {
+                "rua": "Rua Benedito Jacinto Mendes 77",
+                "bairro": "Jardim Grimaldi",
+                "cidade": "São Paulo",
+                "estado": "SP"
+            },
+            "produtos": [
+                {
+                    "codigoEAN": "7896862002251",
+                    "descricao": "LTE FERM FRUTAP SUCO UVA 170G"
+                },
+                {
+                    "codigoEAN": "7896862002275",
+                    "descricao": "LTE FERM FRUTAP SUCO LIMÃO 170G"
+                },
+                {
+                    "codigoEAN": "7896862002299",
+                    "descricao": "LTE FERM FRUTAP SUCO MAÇÃ 170G"
+                },
+                {
+                    "codigoEAN": "7896862002336",
+                    "descricao": "SOB LACTEA FRUTAP CHOC/BRANCO 180G"
+                },
+                {
+                    "codigoEAN": "7896862002350",
+                    "descricao": "LTE FERM S LAC FRUTAP WHEY 20GP BAU 340G"
+                }
+            ]
+        },
+        {
+            "nome": "Bem Barato Sacomã",
+            "endereco": {
+                "rua": "Rua Salvado Pires De Lima 542",
+                "bairro": "Sacomã",
+                "cidade": "São Paulo",
+                "estado": "SP"
+            },
+            "produtos": [
+                {
+                    "codigoEAN": "7896862002367",
+                    "descricao": "IORGUTE LIG FRUTAP AÇAI C/ BANANA 180G"
+                },
+                {
+                    "codigoEAN": "7896862002411",
+                    "descricao": "LEITE FERM FRUTILAC 820G "
+                },
+                {
+                    "codigoEAN": "7896862002428",
+                    "descricao": "LEITE FERM 820G FRUTILAC SACO TRADICIONAL"
+                },
+                {
+                    "codigoEAN": "7896862002435",
+                    "descricao": "SOB LACTEA FRUTAP DOCE DE LEITE 180G"
+                },
+                {
+                    "codigoEAN": "7896862002510",
+                    "descricao": "IORGUTE FRUTAP 90G INTEGRAL"
+                }
+            ]
+        },
+        {
+            "nome": "Roldão Vila Ema",
+            "endereco": {
+                "rua": "Av Vila Ema 3952",
+                "bairro": "Vila Ema",
+                "cidade": "São Paulo",
+                "estado": "SP"
+            },
+            "produtos": [
+                {
+                    "codigoEAN": "7896862002527",
+                    "descricao": "IORGUTE FRUTAP 160G ZERO LACT"
+                },
+                {
+                    "codigoEAN": "7896862002527",
+                    "descricao": "IORGUTE FRUTAP 160G ZERO LACT"
+                },
+                {
+                    "codigoEAN": "7896862000301",
+                    "descricao": "IOGURTE FRUTAP FRUTAS TROPICAIS"
+                },
+                {
+                    "codigoEAN": "7896862002589",
+                    "descricao": "IORGUTE FRUTAP 1,25KG EMB ECON SALADA DE FRUTAS"
+                },
+                {
+                    "codigoEAN": "7896862002596",
+                    "descricao": "IORGUTE FRUTAP 1,25KG EMB ECON IORGUTE FRUTAP FRUTAS VERMELHAS 1,25KG"
+                },
+                {
+                    "codigoEAN": "7896862002336",
+                    "descricao": "SOB LACTEA FRUTAP CHOC/BRANCO 180G"
+                },
+                {
+                    "codigoEAN": "7896862002602",
+                    "descricao": "IORGUTE FRUTAP AÇAI BANANA 1,25KG"
+                },
+                {
+                    "codigoEAN": "7896862002633",
+                    "descricao": "BEB. LACT FERMENTADA FRUTILAC SABOR MORANGO BANDEJA 360G"
+                }
+            ]
+        },
+        {
+            "nome": "Spani Tatuapé",
+            "endereco": {
+                "rua": "Praça Doutor Almeida Junqueira 44",
+                "bairro": "Tatuapé",
+                "cidade": "São Paulo",
+                "estado": "SP"
+            },
+            "produtos": [
+                {
+                    "codigoEAN": "7896862001681",
+                    "descricao": "IOGURTE FRUTAP BICAMADA MORANGO 120G"
+                },
+                {
+                    "codigoEAN": "7896862002589",
+                    "descricao": "IORGUTE FRUTAP 1,25KG EMB ECON"
+                },
+                {
+                    "codigoEAN": "7896862002596",
+                    "descricao": "IORGUTE FRUTAP 1,25KG EMB ECON IORGUTE FRUTAP FRUTAS VERMELHAS 1,25KG"
+                },
+                {
+                    "codigoEAN": "7896862002336",
+                    "descricao": "SOB LACTEA FRUTAP CHOC/BRANCO 180G"
+                },
+                {
+                    "codigoEAN": "7896862002602",
+                    "descricao": "IORGUTE FRUTAP AÇAI BANANA 1,25KG"
+                },
+                {
+                    "codigoEAN": "7896862002633",
+                    "descricao": "BEB. LACT FERMENTADA FRUTILAC SABOR MORANGO BANDEJA 360G"
+                }
+            ]
+        },
+        {
+            "nome": "Spani Vila Formosa",
+            "endereco": {
+                "rua": "Rua Rego Barros 697",
+                "bairro": "Vila Formosa",
+                "cidade": "São Paulo",
+                "estado": "SP"
+            },
+            "produtos": [
+                {
+                    "codigoEAN": "7896862000462",
+                    "descricao": "IOGURTE FRUTAP BICAMADA MORANGO 120G"
+                },
+                {
+                    "codigoEAN": "7896862002589",
+                    "descricao": "IORGUTE FRUTAP 1,25KG EMB ECON"
+                },
+                {
+                    "codigoEAN": "7896862002596",
+                    "descricao": "IORGUTE FRUTAP 1,25KG EMB ECON IORGUTE FRUTAP FRUTAS VERMELHAS 1,25KG"
+                },
+                {
+                    "codigoEAN": "7896862002336",
+                    "descricao": "SOB LACTEA FRUTAP CHOC/BRANCO 180G"
+                },
+                {
+                    "codigoEAN": "7896862002602",
+                    "descricao": "IORGUTE FRUTAP AÇAI BANANA 1,25KG"
+                },
+                {
+                    "codigoEAN": "7896862002633",
+                    "descricao": "BEB. LACT FERMENTADA FRUTILAC SABOR MORANGO BANDEJA 360G"
+                }
+            ]
+        },
+        {
+            "nome": "Spani Vila Prudente",
+            "endereco": {
+                "rua": "Rua Do Orfanato 1629",
+                "bairro": "Vila Prudente",
+                "cidade": "São Paulo",
+                "estado": "SP"
+            },
+            "produtos": [
+                {
+                    "codigoEAN": "7896862000462",
+                    "descricao": "IOGURTE FRUTAP BICAMADA MORANGO 120G"
+                },
+                {
+                    "codigoEAN": "7896862002589",
+                    "descricao": "IORGUTE FRUTAP 1,25KG EMB ECON"
+                },
+                {
+                    "codigoEAN": "7896862002596",
+                    "descricao": "IORGUTE FRUTAP 1,25KG EMB ECON IORGUTE FRUTAP FRUTAS VERMELHAS 1,25KG"
+                },
+                {
+                    "codigoEAN": "7896862002336",
+                    "descricao": "SOB LACTEA FRUTAP CHOC/BRANCO 180G"
+                },
+                {
+                    "codigoEAN": "7896862002602",
+                    "descricao": "IORGUTE FRUTAP AÇAI BANANA 1,25KG"
+                },
+                {
+                    "codigoEAN": "7896862002633",
+                    "descricao": "BEB. LACT FERMENTADA FRUTILAC SABOR MORANGO BANDEJA 360G"
+                }
+            ]
+        },
+        {
+            "nome": "Atacadão (São Caetano do Sul)",
+            "endereco": {
+                "rua": "Av. Guido Aliberti,1285",
+                "bairro": "Santo Antônio,",
+                "cidade": "São Caetano do Sul",
+                "estado": "SP"
+            },
+            "produtos": [
+                {
+                    "codigoEAN": "7896862000462",
+                    "descricao": "IOGURTE FRUTAP BICAMADA MORANGO 120G"
+                },
+                {
+                    "codigoEAN": "7896862002589",
+                    "descricao": "IORGUTE FRUTAP 1,25KG EMB ECON"
+                },
+                {
+                    "codigoEAN": "7896862002596",
+                    "descricao": "IORGUTE FRUTAP 1,25KG EMB ECON IORGUTE FRUTAP FRUTAS VERMELHAS 1,25KG"
+                },
+                {
+                    "codigoEAN": "7896862002336",
+                    "descricao": "SOB LACTEA FRUTAP CHOC/BRANCO 180G"
+                },
+                {
+                    "codigoEAN": "7896862002602",
+                    "descricao": "IORGUTE FRUTAP AÇAI BANANA 1,25KG"
+                },
+                {
+                    "codigoEAN": "7896862002633",
+                    "descricao": "BEB. LACT FERMENTADA FRUTILAC SABOR MORANGO BANDEJA 360G"
+                },
+                {
+                    "codigoEAN": "7896862002763",
+                    "descricao": "IOG FRUTAP NATURAL 150G DESNAT"
+                },
+                {
+                    "codigoEAN": "7896862000431",
+                    "descricao": "IOGURTE FRUTAP NATURAL 150G"
+                },
+                {
+                    "codigoEAN": "7896862001605",
+                    "descricao": "IOG PEDAÇOS FRUTAP 450G MORANGO"
+                },
+                {
+                    "codigoEAN": "7896862002787",
+                    "descricao": "IOG NATURAL FRUTAP 150G MEL"
+                },
+                {
+                    "codigoEAN": "789682000806",
+                    "descricao": "IORGUTE LIQ FRUTAP 160G MORANGO"
+                },
+                {
+                    "codigoEAN": "7896862002572",
+                    "descricao": "IORGUTE FRUTAP GF 1,25KG MORANGO"
+                },
+                {
+                    "codigoEAN": "7896862002343",
+                    "descricao": "IOG LIQ  FRUTAP 850G AÇAÍ C/ BANANA"
+                },
+                {
+                    "codigoEAN": "7896862001353",
+                    "descricao": "BEB LACTEA FRULILAC 480G MORANGO"
+                },
+                {
+                    "codigoEAN": "7896862001841",
+                    "descricao": "BEB LACTEA FRUTILAC 480G FTAS/TROP"
+                },
+                {
+                    "codigoEAN": "7896862002794",
+                    "descricao": "IOG FRUTAP MORANGO C/ CEREAIS COLORIDOS 115G"
+                },
+                {
+                    "codigoEAN": "7896862002657",
+                    "descricao": "IOG FRUTAP MORANGO C/ CONFEITO DE CHOCOLATE 115G"
+                },
+                {
+                    "codigoEAN": "7896862000752",
+                    "descricao": "PETIT FRUTAPINHO 320G MORANGO"
+                },
+                {
+                    "codigoEAN": "7896862002770",
+                    "descricao": "IOG FRUTAP NATURAL 150G LAR/CEN/MEL"
+                },
+                {
+                    "codigoEAN": "7896862002664",
+                    "descricao": "IOG FRUTAP MORANGO COM CEREAIS COLORIDOS 115G"
+                },
+                {
+                    "codigoEAN": "7896862000776",
+                    "descricao": "PETIT FRUTAPINHO 320G MOR/MAC/BAN"
+                },
+                {
+                    "codigoEAN": "7896862003289",
+                    "descricao": "IOG FRUTAP 850G MORANGO C/ LEITE CONDENSADO"
+                },
+                {
+                    "codigoEAN": "7896862002947",
+                    "descricao": "LEITE FERMENTADO FRUTAP MORANGO 170G"
+                },
+                {
+                    "codigoEAN": "7896862001780",
+                    "descricao": "BEBIDA LÁCTEA FERMENTADA MORANGO FRUTILAC 170G"
+                },
+                {
+                    "codigoEAN": "7896862001797",
+                    "descricao": "BEB LÁCEA FERM FRUTILAC SALADA DE FRUTAS 130G"
+                },
+                {
+                    "codigoEAN": "7896862002398",
+                    "descricao": "IOG FRUTAP 850G ZERO MORANGO"
+                },
+                {
+                    "codigoEAN": "7896862002534",
+                    "descricao": "IORG LIQ FRUTAP ZERO AMEIXA 5 GRÃOS 850G"
+                },
+                {
+                    "codigoEAN": "7896862000868",
+                    "descricao": "IOGURTE FRUTAP FRUTAS VERMELHA 850G"
+                },
+                {
+                    "codigoEAN": "7896862000424",
+                    "descricao": "IORG LÍQ FRUTAP SABOR COCO 850G"
+                },
+                {
+                    "codigoEAN": "7896862000417",
+                    "descricao": "IORG LÍQ FRUTAP SABOR COCO 160G"
+                },
+                {
+                    "codigoEAN": "7896862000684",
+                    "descricao": "IORG LÍQ FRUTAP SABOR SALADA DE FRUTAS 850G"
+                },
+                {
+                    "codigoEAN": "7896862002527",
+                    "descricao": "IORG LÍQ FRUTAP ZERO AMEIXA+5 GRÃOS 160G"
+                },
+                {
+                    "codigoEAN": "7896862001216",
+                    "descricao": "BEBIDA LACTEA SABOR COCO 850G FRUTILAC"
+                },
+                {
+                    "codigoEAN": "7896862001230",
+                    "descricao": "BEBIDA LÁCTEA FERMENTADA MORANGO FRUTILAC PACOTE 850G"
+                },
+                {
+                    "codigoEAN": "7896862000066",
+                    "descricao": "BEBIDA LÁCTEA FERMENTADA COCO FRUTILAC PACOTE 850G"
+                },
+                {
+                    "codigoEAN": "7896862001223",
+                    "descricao": "BEBIDA LÁCTEA FERMENTADA FRUTAS VERMELHAS FRUTILAC PACOTE 850G"
+                },
+                {
+                    "codigoEAN": "7896862002060",
+                    "descricao": "LEITE FERMENTADO FRUTAP TRADICIONAL 850G"
+                },
+                {
+                    "codigoEAN": "7896862002862",
+                    "descricao": "LEITE FERM FRUTAP ZERO LACTOSE BAUNILHA 850G"
+                },
+                {
+                    "codigoEAN": "7896862002862",
+                    "descricao": "LEITE FERM FRUTAP ZERO LACTOSE BAUNILHA 850G"
+                },
+                {
+                    "codigoEAN": "7896862002954",
+                    "descricao": "LEITE FERMENTADO FRUTAP 850G MORANGO"
+                },
+                {
+                    "codigoEAN": "7896862002954",
+                    "descricao": "LEITE FERMENTADO FRUTAP 850G MORANGO"
+                },
+                {
+                    "codigoEAN": "7896862002701",
+                    "descricao": "LEITE FERM FRUTAP BONATE 130G"
+                },
+                {
+                    "codigoEAN": "7896862002855",
+                    "descricao": "LEITE FERM FRUTAP ZERO LACTOSE 170G"
+                },
+                {
+                    "codigoEAN": "7896862002138",
+                    "descricao": "LEITE FERMENTADO FRUTAP 480G"
+                },
+                {
+                    "codigoEAN": "7896862002565",
+                    "descricao": "FRUTAP SOBREMESA LACT FLAN 180G MORANGO"
+                },
+                {
+                    "codigoEAN": "7896862002886",
+                    "descricao": "FRUTAP SOBREMESA FRUTAP PUDIM 100G LEITE CONDENSADO"
+                },
+                {
+                    "codigoEAN": "7896862003036",
+                    "descricao": "Leite Fermentado Frutap 450 G Bd C/6 Patati Patata"
+                },
+                {
+                    "codigoEAN": "7896862002923",
+                    "descricao": "Iogurte Integral Frutap Patati Patata Morango 360g"
+                },
+                {
+                    "codigoEAN": "7896862003111",
+                    "descricao": "Iogurte Frutap Dessert Maracuja 90g"
+                },
+                {
+                    "codigoEAN": "7896862003197",
+                    "descricao": "Iogurte Frutap Dessert Trufado 90g"
+                },
+                {
+                    "codigoEAN": "7896862003104",
+                    "descricao": "Iogurte Frutap Dessert Morango 90g"
+                },
+                {
+                    "codigoEAN": "7896862003043",
+                    "descricao": "Iogurte Frutap C/Pedacos Morango 90g"
+                },
+                {
+                    "codigoEAN": "7896862002893",
+                    "descricao": "Sobremesa Láctea Frutap Chocolate 720g"
+                },
+                {
+                    "codigoEAN": "7896862001667",
+                    "descricao": "SOBREMESA LAC. CHOC. AO LEITE BAND. FRUTAP 12X180G"
+                },
+                {
+                    "codigoEAN": "07896862002336",
+                    "descricao": "SOB. lACTEA FRUTAP CHOCOLATE BRANCO 180G"
+                },
+                {
+                    "codigoEAN": "07896862002435",
+                    "descricao": "SOB. lACTEA FRUTAP DOCE DE LEITE 180G"
+                },
+                {
+                    "codigoEAN": "7896862003012",
+                    "descricao": "Sobremesa Láctea Frutapinho Chocolate 320g"
+                },
+                {
+                    "codigoEAN": "789686200844",
+                    "descricao": "IOGURTE FRUTAP FRUTAS VERMELHA 160G"
+                },
+                {
+                    "codigoEAN": "7896862002329",
+                    "descricao": "Iogurte grego Frutap 100g frutas vermelhas"
+                },
+                {
+                    "codigoEAN": "7896862001889",
+                    "descricao": "Iogurte grego Frutap morango 100g"
+                },
+                {
+                    "codigoEAN": "7896862001018",
+                    "descricao": "Iogurte Liquido Frutap 850G Tradicional Batido"
+                },
+                {
+                    "codigoEAN": "7896862003005",
+                    "descricao": "Iogurte Liquido Frutap 850G UVA"
+                },
+                {
+                    "codigoEAN": "7896862002916",
+                    "descricao": "Iogurte Liquido Frutap 850G Açai C/ Morango"
+                },
+                {
+                    "codigoEAN": "7896862000806",
+                    "descricao": "Iogurte Líquido Frutap Sabor Morango 160G"
+                },
+                {
+                    "codigoEAN": "7896862001292",
+                    "descricao": "Iogurte Frutap Morango Bandeja 480g"
+                },
+                {
+                    "codigoEAN": "7896862000202",
+                    "descricao": "Iogurte Frutap Ameixa 850G"
+                }
+            ]
+        }
+    ]
+}

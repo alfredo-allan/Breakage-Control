@@ -1,17 +1,50 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import styles from "./ListingIterationWithDate.module.css";
-
-const items = [
-    { label: "Reportar Datas Críticas", image: "/icons/due-date.png", onClick: () => console.log("Registar Datas Críticas") },
-    { label: "Reportar Avarias", image: "/icons/broken-bottle.png", onClick: () => console.log("Avarias") },
-    { label: "Reportar Trocas", image: "/icons/recycle.png", onClick: () => console.log("Avarias") },
-
-    { label: "Relatórios", image: "/icons/relatorio.png", onClick: () => console.log("Relatórios") },
-];
+import CriticalDate from "../CriticalDate/CriticalDate"; // ajuste o caminho se necessário
 
 export default function ListingIterationWithDate() {
+    const [showCriticalDate, setShowCriticalDate] = useState(false);
+
+    const items = [
+        {
+            label: "Reportar Datas Críticas",
+            image: "/icons/due-date.png",
+            onClick: () => setShowCriticalDate(true),
+        },
+        {
+            label: "Reportar Avarias",
+            image: "/icons/broken-bottle.png",
+            onClick: () => console.log("Avarias"),
+        },
+        {
+            label: "Reportar Trocas",
+            image: "/icons/recycle.png",
+            onClick: () => console.log("Trocas"),
+        },
+        {
+            label: "Relatórios",
+            image: "/icons/relatorio.png",
+            onClick: () => console.log("Relatórios"),
+        },
+    ];
+
+    if (showCriticalDate) {
+        return (
+            <div className="p-4">
+                <button
+                    onClick={() => setShowCriticalDate(false)}
+                    className="mb-4 text-blue-600 underline"
+                >
+                    ← Voltar
+                </button>
+                <CriticalDate />
+            </div>
+        );
+    }
+
     return (
         <div className={styles.container}>
             {items.map((item, index) => (
