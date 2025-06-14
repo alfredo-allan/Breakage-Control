@@ -234,7 +234,19 @@ export default function CriticalDate() {
                 </button>
             </div>
 
-            {scannerVisible && <div ref={scannerRef} className="w-full h-64 border rounded mt-2" />}
+            {scannerVisible && (
+                <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+                    <div className="bg-white p-4 rounded shadow-lg w-full max-w-md">
+                        <div ref={scannerRef} className="w-full h-64 border rounded" />
+                        <button
+                            className="mt-2 px-4 py-2 bg-red-600 text-white rounded"
+                            onClick={() => setScannerVisible(false)}
+                        >
+                            Fechar Câmera
+                        </button>
+                    </div>
+                </div>
+            )}
 
             <input type="text" placeholder="Descrição" value={descricao} readOnly className="p-2 border w-full" />
 
