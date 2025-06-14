@@ -82,3 +82,14 @@ body {
   text-align: center;
   color: var(--text-primary);
 }
+
+/* Força o vídeo e o canvas a ficarem contidos dentro do box */
+.w-full.h-64 video,
+.w-full.h-64 canvas.drawingBuffer {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  /* mesmo arredondamento do container */
+  display: block;
+}
