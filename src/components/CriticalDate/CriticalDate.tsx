@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { Html5QrcodeScanner } from "html5-qrcode";
+import { useEffect, useMemo, useRef, useState } from "react";
+import Quagga from "quagga";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ptBR } from "date-fns/locale";
 import { registerLocale } from "react-datepicker";
 import { getPromotorLogado } from "@/components/LoginForm/api";
-import { isMobile } from "react-device-detect";
+import ResponseModal from "@/components/ResponseModal/ResponseModal";
 
 registerLocale("pt-BR", ptBR);
 
@@ -38,8 +38,12 @@ export default function CriticalDate() {
     const [scannerVisible, setScannerVisible] = useState(false);
     const [promotor, setPromotor] = useState<{ nome: string; promotor_id: number } | null>(null);
     const [clienteSelecionado, setClienteSelecionado] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalMessage, setModalMessage] = useState("");
+    const [modalType, setModalType] = useState<"success" | "error">("success");
 
-    // Carrega clientes do JSON
+    const scannerRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
         fetch("/data/frutap.json")
             .then((res) => res.json())
@@ -53,32 +57,66 @@ export default function CriticalDate() {
             .catch(console.error);
     }, []);
 
-    // Lê promotor logado
     useEffect(() => {
         const logado = getPromotorLogado();
         setPromotor(logado);
     }, []);
 
-    // Scanner de QRCode (mobile only)
     useEffect(() => {
-        if (!scannerVisible || !isMobile) return;
+        if (!scannerVisible || !scannerRef.current) return;
 
-        const scanner = new Html5QrcodeScanner("reader", { fps: 10, qrbox: 250 }, false);
+        // Verifica se está rodando no browser e se getUserMedia está disponível
+        if (typeof window === "undefined" || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+            console.error("getUserMedia não disponível neste ambiente");
+            setScannerVisible(false);
+            return;
+        }
 
-        scanner.render(
-            (decodedText: string) => {
-                setEan(decodedText);
-                const produto = clientes.flatMap((c) => c.produtos).find((p) => p.codigoEAN === decodedText);
-                if (produto) setDescricao(produto.descricao);
-                scanner.clear().then(() => setScannerVisible(false));
+        Quagga.init(
+            {
+                inputStream: {
+                    name: "Live",
+                    type: "LiveStream",
+                    target: scannerRef.current,
+                    constraints: {
+                        facingMode: "environment",
+                    },
+                },
+                decoder: {
+                    readers: ["ean_reader"],
+                },
             },
-            (error) => {
-                console.warn("Erro na leitura:", error);
+            (err: Error | null) => {
+                if (err) {
+                    console.error(err);
+                    setScannerVisible(false);
+                    return;
+                }
+                Quagga.start();
             }
         );
 
+        const onDetected = (result: { codeResult: { code: string } }) => {
+            const code = result.codeResult.code;
+            setEan(code);
+            const produto = clientes.flatMap((c) => c.produtos).find((p) => p.codigoEAN === code);
+            if (produto) setDescricao(produto.descricao);
+            setScannerVisible(false);
+            Quagga.stop();
+        };
+
+        Quagga.onDetected(onDetected);
+
         return () => {
-            scanner.clear().catch(() => { });
+            Quagga.offDetected(onDetected);
+            Quagga.stop();
+        };
+
+        Quagga.onDetected(onDetected);
+
+        return () => {
+            Quagga.offDetected(onDetected);
+            Quagga.stop();
         };
     }, [scannerVisible, clientes]);
 
@@ -91,7 +129,9 @@ export default function CriticalDate() {
 
     const handleClienteSelect = (cliente: Cliente) => {
         setNomeCliente(cliente.nome);
-        setEndereco(`${cliente.endereco.rua}, ${cliente.endereco.bairro} - ${cliente.endereco.cidade}/${cliente.endereco.estado}`);
+        setEndereco(
+            `${cliente.endereco.rua}, ${cliente.endereco.bairro} - ${cliente.endereco.cidade}/${cliente.endereco.estado}`
+        );
         setClienteSelecionado(true);
     };
 
@@ -102,14 +142,24 @@ export default function CriticalDate() {
     };
 
     const handleScannerOpen = () => {
-        if (!isMobile) {
-            alert("O leitor de QRCode só está disponível em dispositivos móveis.");
-            return;
-        }
         setScannerVisible(true);
     };
 
-    const handleSubmit = () => {
+    // Adicionei busca no input do EAN para preencher descrição automaticamente
+    const handleEanChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const codigo = e.target.value;
+        setEan(codigo);
+
+        const produto = clientes.flatMap((c) => c.produtos).find((p) => p.codigoEAN.trim() === codigo.trim());
+
+        if (produto) {
+            setDescricao(produto.descricao);
+        } else {
+            setDescricao("");
+        }
+    };
+
+    const handleSubmit = async () => {
         const payload = {
             promotor: promotor?.nome ?? "Desconhecido",
             cliente: nomeCliente,
@@ -120,18 +170,30 @@ export default function CriticalDate() {
             quantidade,
         };
 
-        console.log("Enviando dados:", payload);
+        try {
+            const res = await fetch("/api/salvar", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+            });
 
-        fetch("/api/salvar", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-        });
+            if (!res.ok) throw new Error("Erro ao salvar dados");
+
+            setModalType("success");
+            setModalMessage("Dados salvos com sucesso!");
+            setModalOpen(true);
+        } catch {
+            setModalType("error");
+            setModalMessage("Erro ao enviar os dados. Tente novamente.");
+            setModalOpen(true);
+        }
     };
 
     return (
         <div className="p-4 space-y-4 max-w-xl mx-auto">
-            <div>Promotor: <strong>{promotor?.nome ?? "Carregando..."}</strong></div>
+            <div>
+                Promotor: <strong>{promotor?.nome ?? "Carregando..."}</strong>
+            </div>
 
             <div className="relative">
                 <input
@@ -157,34 +219,24 @@ export default function CriticalDate() {
                 )}
             </div>
 
-            <input
-                type="text"
-                placeholder="Endereço"
-                value={endereco}
-                readOnly
-                className="p-2 border w-full"
-            />
+            <input type="text" placeholder="Endereço" value={endereco} readOnly className="p-2 border w-full" />
 
-            <input
-                type="text"
-                placeholder="Código EAN"
-                value={ean}
-                onClick={handleScannerOpen}
-                readOnly
-                className="p-2 border w-full cursor-pointer"
-            />
+            <div className="flex gap-2">
+                <input
+                    type="text"
+                    placeholder="Código EAN"
+                    value={ean}
+                    onChange={handleEanChange}
+                    className="p-2 border w-full"
+                />
+                <button onClick={handleScannerOpen} className="bg-blue-600 hover:bg-blue-700 text-white px-4 rounded">
+                    Ler Código
+                </button>
+            </div>
 
-            {scannerVisible && isMobile && (
-                <div id="reader" className="w-full h-64 border rounded" />
-            )}
+            {scannerVisible && <div ref={scannerRef} className="w-full h-64 border rounded mt-2" />}
 
-            <input
-                type="text"
-                placeholder="Descrição"
-                value={descricao}
-                readOnly
-                className="p-2 border w-full"
-            />
+            <input type="text" placeholder="Descrição" value={descricao} readOnly className="p-2 border w-full" />
 
             <DatePicker
                 selected={data}
@@ -209,6 +261,13 @@ export default function CriticalDate() {
             >
                 Salvar Dados
             </button>
+
+            <ResponseModal
+                isOpen={modalOpen}
+                type={modalType}
+                message={modalMessage}
+                onClose={() => setModalOpen(false)}
+            />
         </div>
     );
 }
