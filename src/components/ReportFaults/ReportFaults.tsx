@@ -29,7 +29,7 @@ type Cliente = {
     produtos: Produto[];
 };
 
-export default function CriticalDate() {
+export default function ReportFaults() {
     const [nomeCliente, setNomeCliente] = useState("");
     const [endereco, setEndereco] = useState("");
     const [ean, setEan] = useState("");

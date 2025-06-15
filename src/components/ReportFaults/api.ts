@@ -11,14 +11,14 @@ export async function enviarDadosCriticos(payload: {
     quantidadeProdutos: number;
     tipoQuantidade: "unidade" | "caixa";
 }) {
-    const response = await fetch(`${API_BASE_URL}/salvar-dados`, {
+    const response = await fetch(`${API_BASE_URL}/avarias`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
             ...payload,
-            tipoRegistro: "data_critica", // 🆕 adiciona campo novo
+            tipoRegistro: "avaria", // 🆕 adiciona campo novo
         }),
     });
 

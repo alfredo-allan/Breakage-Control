@@ -4,9 +4,12 @@ import { useState } from "react";
 import Image from "next/image";
 import styles from "./ListingIterationWithDate.module.css";
 import CriticalDate from "../CriticalDate/CriticalDate"; // ajuste o caminho se necessário
+import ReportFaults from "../ReportFaults/ReportFaults";
 
 export default function ListingIterationWithDate() {
     const [showCriticalDate, setShowCriticalDate] = useState(false);
+    const [showReportFaults, setShowReportFaults] = useState(false);
+
 
     const items = [
         {
@@ -17,7 +20,8 @@ export default function ListingIterationWithDate() {
         {
             label: "Reportar Avarias",
             image: "/icons/broken-bottle.png",
-            onClick: () => console.log("Avarias"),
+            onClick: () => setShowReportFaults(true),
+
         },
         {
             label: "Reportar Trocas",
@@ -41,6 +45,20 @@ export default function ListingIterationWithDate() {
                     ← Voltar
                 </button>
                 <CriticalDate />
+            </div>
+        );
+    }
+
+    if (showReportFaults) {
+        return (
+            <div className="p-4">
+                <button
+                    onClick={() => setShowReportFaults(false)}
+                    className="mb-4 text-blue-600 underline"
+                >
+                    ← Voltar
+                </button>
+                <ReportFaults />
             </div>
         );
     }
