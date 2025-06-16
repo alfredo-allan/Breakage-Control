@@ -196,6 +196,7 @@ export default function ReportFaults() {
 
     return (
         <div className="p-4 space-y-4 max-w-xl mx-auto">
+            <h1 className="location-title">Reportar Avarias</h1>
             <div>
                 Promotor: <strong>{promotor?.nome ?? "Carregando..."}</strong>
             </div>

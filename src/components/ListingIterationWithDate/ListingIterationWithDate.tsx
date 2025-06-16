@@ -5,10 +5,16 @@ import Image from "next/image";
 import styles from "./ListingIterationWithDate.module.css";
 import CriticalDate from "../CriticalDate/CriticalDate"; // ajuste o caminho se necessário
 import ReportFaults from "../ReportFaults/ReportFaults";
+import ReportExchanges from "../ReportExchanges/ReportExchanges";
+import ReportsCriticalDates from "../ReportsCriticalDates/ReportsCriticalDates";
 
 export default function ListingIterationWithDate() {
     const [showCriticalDate, setShowCriticalDate] = useState(false);
     const [showReportFaults, setShowReportFaults] = useState(false);
+    const [showReportExchanges, setShowReportExchanges] = useState(false);
+    const [showReportCriticalDates, setShowReportCriticalDates] = useState(false);
+
+
 
 
     const items = [
@@ -26,12 +32,12 @@ export default function ListingIterationWithDate() {
         {
             label: "Reportar Trocas",
             image: "/icons/recycle.png",
-            onClick: () => console.log("Trocas"),
+            onClick: () => setShowReportExchanges(true),
         },
         {
             label: "Relatórios",
             image: "/icons/relatorio.png",
-            onClick: () => console.log("Relatórios"),
+            onClick: () => setShowReportCriticalDates(true),
         },
     ];
 
@@ -62,6 +68,35 @@ export default function ListingIterationWithDate() {
             </div>
         );
     }
+
+    if (showReportExchanges) {
+        return (
+            <div className="p-4">
+                <button
+                    onClick={() => setShowReportExchanges(false)}
+                    className="mb-4 text-blue-600 underline"
+                >
+                    ← Voltar
+                </button>
+                <ReportExchanges />
+            </div>
+        );
+    }
+
+    if (showReportCriticalDates) {
+        return (
+            <div className="p-4">
+                <button
+                    onClick={() => setShowReportCriticalDates(false)}
+                    className="mb-4 text-blue-600 underline"
+                >
+                    ← Voltar
+                </button>
+                <ReportsCriticalDates />
+            </div>
+        );
+    }
+
 
     return (
         <div className={styles.container}>

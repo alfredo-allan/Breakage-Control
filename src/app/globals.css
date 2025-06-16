@@ -93,3 +93,12 @@ body {
   /* mesmo arredondamento do container */
   display: block;
 }
+
+.location-title {
+  color: red;
+  font-size: 2.1rem;
+}
+
+.p-2.border.w-full {
+  cursor: pointer;
+}

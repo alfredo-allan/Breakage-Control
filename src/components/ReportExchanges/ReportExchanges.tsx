@@ -29,7 +29,7 @@ type Cliente = {
     produtos: Produto[];
 };
 
-export default function CriticalDate() {
+export default function ReportExchanges() {
     const [nomeCliente, setNomeCliente] = useState("");
     const [endereco, setEndereco] = useState("");
     const [ean, setEan] = useState("");
@@ -196,8 +196,7 @@ export default function CriticalDate() {
 
     return (
         <div className="p-4 space-y-4 max-w-xl mx-auto">
-            <h1 className="location-title">Reportar Datas Críticas</h1>
-
+            <h1 className="location-title">Reportar Trocas</h1>
             <div>
                 Promotor: <strong>{promotor?.nome ?? "Carregando..."}</strong>
             </div>
