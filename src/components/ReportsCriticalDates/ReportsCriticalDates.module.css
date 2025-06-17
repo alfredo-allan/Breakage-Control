@@ -1,0 +1,67 @@
+.container {
+    padding: 1rem;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    aspect-ratio: 16 / 6;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.image {
+    object-fit: contain;
+}
+
+.loading,
+.error {
+    font-size: 1rem;
+    margin: 1rem 0;
+    color: #555;
+}
+
+.error {
+    color: red;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.downloadButton,
+.reloadButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #3b82f6;
+    color: white;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+}
+
+.downloadButton:hover,
+.reloadButton:hover {
+    background-color: #2563eb;
+}
