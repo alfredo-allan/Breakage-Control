@@ -9,3 +9,23 @@
     font-size: 1.5rem;
     color: #333;
 }
+
+.welcome-text {
+    color: #16a34a;
+    /* verde suave */
+    font-weight: 500;
+    margin-top: 4px;
+    text-align: left;
+    /* qualquer outro estilo que quiser */
+}
+
+.content-welcome-text {
+    margin-left: 2%;
+}
+
+@media (max-width: 768px) {
+    .content-welcome-text {
+        left: 0;
+        text-align: center;
+    }
+}

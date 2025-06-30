@@ -30,7 +30,7 @@ interface AxiosErrorLike {
     };
 }
 
-export default function RegisterForm() {
+export default function RegisterForm({ onSuccess }: { onSuccess?: () => void }) {
     const [formData, setFormData] = useState<FormData>({
         nome: "",
         telefone: "",
@@ -46,6 +46,7 @@ export default function RegisterForm() {
         message: "",
     });
 
+
     function formatPhone(value: string) {
         const cleaned = value.replace(/\D/g, "");
         if (cleaned.length <= 2) return cleaned;
@@ -55,10 +56,18 @@ export default function RegisterForm() {
         return `${cleaned.slice(0, 2)} ${cleaned.slice(2, 7)}-${cleaned.slice(7, 11)}`;
     }
 
+    function capitalizeName(name: string) {
+        return name
+            .toLowerCase()
+            .replace(/(^|\s)\S/g, (match) => match.toUpperCase());
+    }
+
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         const { name, value } = e.target;
         if (name === "telefone") {
             setFormData((prev) => ({ ...prev, telefone: formatPhone(value) }));
+        } else if (name === "nome") {
+            setFormData((prev) => ({ ...prev, nome: capitalizeName(value) }));
         } else {
             setFormData((prev) => ({ ...prev, [name]: value }));
         }
@@ -86,6 +95,11 @@ export default function RegisterForm() {
                     message: "Cadastro realizado com sucesso!",
                 });
                 setFormData({ nome: "", telefone: "", email: "", empresa: "", senha: "" });
+                setTimeout(() => {
+                    if (onSuccess) {
+                        onSuccess();
+                    }
+                }, 2000);
             } else {
                 setModal({
                     isOpen: true,

@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Image from "next/image";
 import styles from "./LoginForm.module.css";
 import ResponseModal from "../ResponseModal/ResponseModal";
-import { loginPromotor } from "./api";
+import { loginPromotor, LoginResponse } from "./api";
+import { AuthContext } from "@/auth/AuthProvider";
 
 interface LoginData {
     nome: string;
@@ -20,15 +21,11 @@ interface ModalState {
     message: string;
 }
 
-interface AxiosErrorLike {
-    response?: {
-        data?: {
-            error?: string;
-        };
-    };
+interface LoginFormProps {
+    onLoginSuccess?: () => void; // callback para redirecionar após login
 }
 
-export default function LoginForm() {
+export default function LoginForm({ onLoginSuccess }: LoginFormProps) {
     const [formData, setFormData] = useState<LoginData>({
         nome: "",
         telefone: "",
@@ -43,6 +40,7 @@ export default function LoginForm() {
     });
 
     const [userName, setUserName] = useState<string>("");
+    const { login } = useContext(AuthContext) || {};
 
     function formatPhone(value: string) {
         const cleaned = value.replace(/\D/g, "");
@@ -52,14 +50,22 @@ export default function LoginForm() {
             return `${cleaned.slice(0, 2)} ${cleaned.slice(2, 7)}-${cleaned.slice(7, 11)}`;
         return `${cleaned.slice(0, 2)} ${cleaned.slice(2, 7)}-${cleaned.slice(7, 11)}`;
     }
+    function capitalizeName(name: string) {
+        return name
+            .toLowerCase()
+            .replace(/(^|\s)\S/g, (match) => match.toUpperCase());
+    }
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         const { name, value } = e.target;
         if (name === "telefone") {
             setFormData((prev) => ({ ...prev, telefone: formatPhone(value) }));
+        } else if (name === "nome") {
+            setFormData((prev) => ({ ...prev, nome: capitalizeName(value) }));
         } else {
             setFormData((prev) => ({ ...prev, [name]: value }));
         }
+
     }
 
     async function handleSubmit(e: React.FormEvent) {
@@ -76,19 +82,19 @@ export default function LoginForm() {
         }
 
         try {
-            const data = await loginPromotor(formData);
+            const data: LoginResponse = await loginPromotor(formData);
 
             setUserName(data.nome);
+            // Adaptação para o AuthContext: id como string, email vazio
+            login?.({ id: data.promotor_id.toString(), name: data.nome, email: "" });
 
             setModal({
                 isOpen: true,
                 type: "success",
                 message: `Bem-vindo, ${data.nome}! Login realizado com sucesso.`,
             });
-
-            // Aqui pode salvar token, user, redirecionar, etc.
         } catch (error: unknown) {
-            const err = error as AxiosErrorLike;
+            const err = error as { response?: { data?: { error?: string } } };
             const message = err.response?.data?.error ?? "Erro na conexão com o servidor.";
 
             setModal({
@@ -98,6 +104,14 @@ export default function LoginForm() {
             });
         }
     }
+
+    const handleModalClose = () => {
+        setModal((prev) => ({ ...prev, isOpen: false }));
+        if (userName) {
+            onLoginSuccess?.();
+        }
+
+    };
 
     return (
         <div className={styles.container}>
@@ -163,7 +177,6 @@ export default function LoginForm() {
                 </button>
             </form>
 
-            {/* Mensagem de boas-vindas */}
             {userName && (
                 <p className={`mt-4 font-semibold ${styles.responseText}`}>
                     Bem-vindo, {userName}!
@@ -174,7 +187,7 @@ export default function LoginForm() {
                 isOpen={modal.isOpen}
                 type={modal.type}
                 message={modal.message}
-                onClose={() => setModal((prev) => ({ ...prev, isOpen: false }))}
+                onClose={handleModalClose}
             />
         </div>
     );

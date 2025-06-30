@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import ListingIterationWithStock from "../ListingIterationWithStock/ListingIterationWithStock";
-
+import { AuthContext } from "../../auth/AuthProvider";
+import AuthCheckModal from "../AuthCheckModal/AuthCheckModal";
+import styles from "./Header.module.css"
 // import { HomeTextContainer } from "./HomeTextContainer";
 import SideMenu from "../SideMenu/SideMenu"; // <- IMPORTADO AQUI
 import StartAnimation from "../StartAnimation/StartAnimation";
@@ -17,7 +19,34 @@ import LoginForm from "../LoginForm/LoginForm";
 export default function Header() {
     const [activeComponent, setActiveComponent] = useState<string>("inicio");
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false); // <- CONTROLE DO MENU
+    const { user, loading } = useContext(AuthContext) || {};
+    const [showAuthModal, setShowAuthModal] = useState(false);
+    const [hasCheckedAuth, setHasCheckedAuth] = useState(false);
 
+    useEffect(() => {
+        if (!loading) {
+            if (user) {
+                setShowAuthModal(false); // fecha modal se estiver logado
+            } else if (!hasCheckedAuth) {
+                setShowAuthModal(true);
+                setHasCheckedAuth(true);
+            }
+        }
+    }, [loading, user, hasCheckedAuth]);
+
+    // Resetar verificação ao mudar usuário
+    useEffect(() => {
+        if (user) {
+            setHasCheckedAuth(false);
+        }
+    }, [user]);
+    const handleNavigate = (target: "login" | "cadastrar-se") => {
+        setActiveComponent(target);
+        setShowAuthModal(false);
+    };
+    console.log("user", user);
+    console.log("loading", loading);
+    console.log("hasCheckedAuth", hasCheckedAuth);
     const handleMenuClick = () => {
         setMobileMenuOpen(true); // <- ABRE MENU
     };
@@ -49,9 +78,9 @@ export default function Header() {
             case "relatorios":
                 return < ListingIterationWithReport />;
             case "cadastrar-se":
-                return < RegisterForm />;
-            case "login":
-                return < LoginForm />;
+                return <RegisterForm onSuccess={() => setActiveComponent("login")} />; case "login":
+                return <LoginForm onLoginSuccess={() => setActiveComponent("inicio")} />
+
         }
     };
 
@@ -135,6 +164,13 @@ export default function Header() {
                     <Image src="/icons/menu.png" alt="Menu" width={32} height={32} priority />
                 </div>
             </header>
+            {user && activeComponent === "inicio" && (
+                <div className={styles["content-welcome-text"]}>
+                    <span className={styles["welcome-text"]}>
+                        Seja bem-vindo, {user.name}!
+                    </span>
+                </div>
+            )}
 
             {/* Renderiza componente ativo */}
             {renderActiveComponent()}
@@ -148,6 +184,12 @@ export default function Header() {
                     }}
                 />
             )}
+            <AuthCheckModal
+                isOpen={showAuthModal}
+                onClose={() => setShowAuthModal(false)}
+                onNavigate={handleNavigate}
+            />
+
         </>
     );
 }
