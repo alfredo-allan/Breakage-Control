@@ -107,7 +107,7 @@ export default function Header() {
                             <a href="#" className="text-[var(--primary)] menu-hover"
                                 onClick={() => setActiveComponent("datas-criticas")}
                             >
-                                Datas críticas
+                                Datas e Avarias
                             </a>
                         </li>
                         <li>
@@ -116,7 +116,7 @@ export default function Header() {
                                 className="text-[var(--primary)] menu-hover"
                                 onClick={() => setActiveComponent("estoque")}
                             >
-                                Estoque
+                                Rotinas do Estoque
                             </a>
                         </li>
                         <li>

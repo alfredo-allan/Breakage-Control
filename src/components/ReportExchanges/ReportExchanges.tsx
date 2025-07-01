@@ -196,7 +196,7 @@ export default function ReportExchanges() {
 
     return (
         <div className="p-4 space-y-4 max-w-xl mx-auto">
-            <h1 className="location-title">Reportar Trocas</h1>
+            <h1 className="location-title">Reportar Trocas (Diárias)</h1>
             <div>
                 Promotor: <strong>{promotor?.nome ?? "Carregando..."}</strong>
             </div>

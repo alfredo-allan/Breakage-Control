@@ -30,7 +30,7 @@ export default function ListingIterationWithDate() {
 
         },
         {
-            label: "Reportar Trocas",
+            label: "Reportar Trocas (Diárias)",
             image: "/icons/recycle.png",
             onClick: () => setShowReportExchanges(true),
         },

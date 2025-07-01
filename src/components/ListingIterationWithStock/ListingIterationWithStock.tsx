@@ -5,7 +5,7 @@ import styles from "./ListingIterationWithStock.module.css";
 
 const items = [
     { label: "Produtos (Giro)", image: "/icons/registro.png", onClick: () => console.log("Giro") },
-    { label: "Reportar Quebras", image: "/icons/quebras.png", onClick: () => console.log("Quebras") },
+    { label: "Reportar Ruptura", image: "/icons/quebras.png", onClick: () => console.log("Quebras") },
     { label: "Saída", image: "/icons/notas.png", onClick: () => console.log("Notas") },
     { label: "Relatórios", image: "/icons/relatorio.png", onClick: () => console.log("Relatórios") },
 ];
