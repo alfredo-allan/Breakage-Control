@@ -19,13 +19,27 @@
     /* qualquer outro estilo que quiser */
 }
 
-.content-welcome-text {
-    margin-left: 2%;
-}
 
 @media (max-width: 768px) {
     .content-welcome-text {
+        position: fixed;
+        top: 56px;
+        /* Abaixo do header mobile */
         left: 0;
+        right: 0;
+        z-index: 20;
         text-align: center;
+        background-color: var(--header-bg);
+        color: var(--primary);
+        padding: 8px 0;
+        font-size: 0.875rem;
+        /* text-sm */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media (min-width: 1200px) {
+    .content-welcome-text {
+        display: none;
     }
 }
